@@ -6,7 +6,7 @@
 		<title>Nieuwe functionaliteit: annotaties</title>
 		<item kind="text"  level="1">Annotaties kunnen op slides worden getekend</item>
 		<item kind="text"  level="2">Activeer de annotatiemodus in het annotatiemenu om te kunnen tekenen</item>
-		<item kind="text"  level="2">Annotaties worden standaard in het zwart en 3 pixels breed getekend</item>
+		<item kind="text"  level="2">Annotaties worden standaard in het zwart en 2 pixels dik getekend</item>
 		<item kind="text"  level="1">Annotatiestijl instellen</item>
 		<item kind="text"  level="2">U kunt via het annotatiemenu ook de kleur en grootte van de pen instellen</item>
 		<item kind="text"  level="1">Teken nu wat annotaties in verschillende stijlen en navigeer naar de volgende slide</item>
