@@ -1,18 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package events.events;
 
 import java.util.EventObject;
 
 /**
- *
+ * This class contains the information of the NewPresentationEvent event.
  * @author Tim
  */
 public class NewPresentationEvent extends EventObject {
     
+    /**
+     * Initialize the NewPresentationEvent class.
+     * @param source The source object where the event initially occurred on.
+     */
     public NewPresentationEvent(Object source) {
         super(source);
     }

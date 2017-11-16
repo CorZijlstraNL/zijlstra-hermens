@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import java.awt.image.BufferedImage;
@@ -13,17 +8,30 @@ import model.drawlogic.ImageItemDrawLogic;
 import model.drawlogic.SlideItemDrawLogic;
 
 /**
- *
+ * The ImageItem represents an image element on a slide.
  * @author Tim
  */
 public class ImageItem extends SlideItem {
 
+    /**
+     * The full image name.
+     */
     private String imageName;
+    
+    /**
+     * The data of the image.
+     */
     private BufferedImage bufferedImage;
     
+    // Parts of messages when the image file cannot be found
     private static final String FILE = "Bestand ";
     private static final String NOTFOUND = " niet gevonden";
     
+    /**
+     * Initialize the ImageItem object.
+     * @param nestingLevel The nesting level of the object.
+     * @param imageName The full image name.
+     */
     public ImageItem(int nestingLevel, String imageName) {
         super(nestingLevel);
         this.imageName = imageName;
@@ -35,10 +43,18 @@ public class ImageItem extends SlideItem {
         }
     }
 
+    /**
+     * Retrieve the full image name.
+     * @return The full image name.
+     */
     public String getImageName() {
         return imageName;
     }
 
+    /**
+     * Retrieve the data of the image.
+     * @return The data of the image.
+     */
     public BufferedImage getImage() {
         return bufferedImage;
     }
@@ -48,4 +64,8 @@ public class ImageItem extends SlideItem {
         return new ImageItemDrawLogic(this);
     }
     
+    @Override
+    public String toString() {
+        return "ImageItem[" + getNestingLevel() + "," + imageName + "]";
+    }
 }

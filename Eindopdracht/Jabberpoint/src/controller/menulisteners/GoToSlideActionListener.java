@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller.menulisteners;
 
 import events.dispatchers.BaseEventDispatcher;
@@ -12,22 +7,27 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * This class contains the operations that need to be executed to navigate to a specific slide.
  * @author Tim
  */
 public class GoToSlideActionListener implements ActionListener {
     
+    /**
+     * The dispatcher used to dispatch the GoToSlideEvent event.
+     */
     private BaseEventDispatcher goToSlideEventDispatcher;
-    
-    private static final String SLIDE_NUMBER = "Slide number?";
 
+    /**
+     * Initialize the GoToSlideActionListener class.
+     * @param goToSlideEventDispatcher The dispatcher used to dispatch the GoToSlideEvent event.
+     */
     public GoToSlideActionListener(BaseEventDispatcher goToSlideEventDispatcher) {
         this.goToSlideEventDispatcher = goToSlideEventDispatcher;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String slideNumberString = JOptionPane.showInputDialog(SLIDE_NUMBER);
+        String slideNumberString = JOptionPane.showInputDialog("Slide number?");
         
         if(slideNumberString != null) {
             try {
@@ -37,7 +37,10 @@ public class GoToSlideActionListener implements ActionListener {
                 }
             }
             catch (NumberFormatException exception) {
-                System.err.println(exception.toString());
+                JOptionPane.showMessageDialog(null, 
+                        "The input must be a number.",
+                        "Invalid input",
+                        JOptionPane.ERROR_MESSAGE);
             }
         }
     }

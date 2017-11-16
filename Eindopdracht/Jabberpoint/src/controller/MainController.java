@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 import controller.adapters.SlideViewerComponentMouseAdapter;
@@ -25,17 +20,31 @@ import view.SlideViewerFrame;
 import view.SlideViewerMenu;
 
 /**
- *
+ * The MainController sets up the communication between the Model and View, and View
+ * and Controller through Events. It handles all the control flow logic.
  * @author Tim
  */
 public class MainController implements Controller, ClosePresentationEventListener {
 
+    /**
+     * The initial annotation mode status.
+     */
     private static final boolean INITIAL_ANNOTATION_MODE_IS_ENABLED = false;
     
+    /**
+     * The Model this controller is connected to.
+     */
     private MainModel model;
     
+    /**
+     * The View this controller is connected to.
+     */
     private SlideViewerFrame view;
     
+    /**
+     * Initialize the MainController class. 
+     * @param factory The MVCFactory which can create the related Model, View and Controller classes.
+     */
     public MainController(MVCFactory factory) {
         this.model = (MainModel) factory.createModel();
         this.view = (SlideViewerFrame) factory.createView();
@@ -43,7 +52,8 @@ public class MainController implements Controller, ClosePresentationEventListene
     }
     
     /**
-     * Registers all EventListener objects and passes all EventDispatcher objects to the relevant classes.
+     * Set up the communication between the MVC-related objects by setting up the BaseEventDispatchers and 
+     * adding these objects as listeners to the relevant dispatchers.
      */
     private void setup() {
         // create all event dispatchers
@@ -125,6 +135,10 @@ public class MainController implements Controller, ClosePresentationEventListene
         this.view.setupWindowAdapter(slideViewerFrameWindowAdapter);
     }
     
+    /**
+     * Load the presentation.
+     * @param presentationPath The path pointing to the presentation file.
+     */
     public void loadPresentation(String presentationPath) {
         this.model.loadPresentation(presentationPath);
     }

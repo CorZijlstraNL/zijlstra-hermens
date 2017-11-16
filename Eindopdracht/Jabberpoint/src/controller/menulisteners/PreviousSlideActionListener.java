@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller.menulisteners;
 
 import events.dispatchers.BaseEventDispatcher;
@@ -11,13 +6,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- *
+ * This class contains the operations that need to be executed to navigate to the previous slide.
  * @author Tim
  */
 public class PreviousSlideActionListener implements ActionListener {
     
+    /**
+     * The dispatcher used to dispatch the PreviousSlideEvent event.
+     */
     private BaseEventDispatcher previousSlideEventDispatcher;
 
+    /**
+     * Initialize the PreviousSlideActionListener class.
+     * @param previousSlideEventDispatcher The dispatcher used to dispatch the PreviousSlideEvent event.
+     */
     public PreviousSlideActionListener(BaseEventDispatcher previousSlideEventDispatcher) {
         this.previousSlideEventDispatcher = previousSlideEventDispatcher;
     }

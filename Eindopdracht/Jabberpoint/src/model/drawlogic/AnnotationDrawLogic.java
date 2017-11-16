@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.drawlogic;
 
 import java.awt.BasicStroke;
@@ -14,20 +9,27 @@ import java.util.List;
 import model.Annotation;
 
 /**
- *
+ * The AnnotationDrawLogic object contains the draw logic to be able to draw the Annotation objects.
  * @author Tim
  */
 public class AnnotationDrawLogic {
 
+    /**
+     * The annotation to draw.
+     */
     private Annotation annotation;
     
+    /**
+     * Initialize the AnnotationDrawLogic object.
+     * @param annotation The annotation to draw.
+     */
     public AnnotationDrawLogic(Annotation annotation) {
         this.annotation = annotation;
     }
     
     /**
      * Draw the annotation.
-     * @param graphics 
+     * @param graphics The graphics object of the component to draw the annotation on.
      */
     public void draw(Graphics graphics) {
         // Set color
@@ -61,10 +63,10 @@ public class AnnotationDrawLogic {
     }
     
     /**
-     * Draws a line between the source point and target point.
-     * @param graphics
-     * @param source
-     * @param target 
+     * Draw a line between the source point and target point.
+     * @param graphics The graphics object of the component to draw the line on.
+     * @param source The starting point of the line.
+     * @param target The final point of the line.
      */
     private void drawLine(Graphics graphics, Point source, Point target) {
         graphics.drawLine(source.x, source.y, target.x, target.y);

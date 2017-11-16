@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import java.awt.Color;
@@ -10,30 +5,55 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * The SlideStyleCollection object contains the collection of SlideStyle objects that represent
+ * the styles for the SlideItem elements. Each style corresponds to a nesting level of a SlideItem.
  * @author Tim
  */
 public class SlideStyleCollection {
     
+    /**
+     * The collection of styles for the SlideItem. The index position of a style in this collection 
+     * indicates for what nesting level the style is applied.
+     */
     private List<SlideStyle> slideStyles;
 
+    /**
+     * Initialize the SlideStyleCollection object.
+     */
     public SlideStyleCollection() {
         this.slideStyles = new ArrayList();
         this.setDefaultStyles();
     }
     
+    /**
+     * Add a style to the collection of styles.
+     * @param style The style to add.
+     */
     public void addSlideStyle(SlideStyle style) {
         this.slideStyles.add(style);
     }
     
+    /**
+     * Retrieve the style for a specific nesting level.
+     * @param nestingLevel The nesting level.
+     * @return The style for a specific nesting level.
+     */
     public SlideStyle getSlideStyle(int nestingLevel) {
         return this.slideStyles.get(nestingLevel);
     }
     
+    /**
+     * Set the style for a specific nesting level.
+     * @param nestingLevel The nesting level.
+     * @param style The style for the nesting level.
+     */
     public void setSlideStyle(int nestingLevel, SlideStyle style) {
         this.slideStyles.set(nestingLevel, style);
     }
     
+    /**
+     * Set the default styles.
+     */
     private void setDefaultStyles() {
         this.addSlideStyle(new SlideStyle(Color.red, 20, 0, 48)); // style for nestingLevel 0
         this.addSlideStyle(new SlideStyle(Color.blue, 10, 20, 40)); // style for nestingLevel 1

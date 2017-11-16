@@ -1,18 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package factories;
 
 import view.SlideViewerComponent;
 
 /**
- *
+ * This factory creates Component objects for the view-related objects.
  * @author Tim
  */
 public class ComponentFactory {
     
+    /**
+     * Create the SlideViewerComponent.
+     * @return The SlideViewerComponent.
+     */
     public static SlideViewerComponent createSlideViewerComponent() {
         return new SlideViewerComponent();
     }

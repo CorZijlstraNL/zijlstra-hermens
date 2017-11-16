@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller.adapters;
 
 import events.dispatchers.BaseEventDispatcher;
@@ -19,18 +14,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * This class handles the mouse events that are triggered on the SlideViewerComponent. 
+ * Annotations are drawn depending on the annotation mode.
  * @author Tim
  */
 public class SlideViewerComponentMouseAdapter extends MouseAdapter implements MouseMotionListener, MouseListener, UpdateAnnotationModeEventListener {
     
+    /**
+     * Indicates if the annotation mode is enabled.
+     */
     private boolean annotationModeIsEnabled;
     
+    /**
+     * The drawn annotation points.
+     */
     private List<Point> annotationPoints;
     
+    /**
+     * The dispatcher used to dispatch the UpdateDrawnAnnotationEvent event.
+     */
     private BaseEventDispatcher updateDrawnAnnotationEventDispatcher;
+    
+    /**
+     * The dispatcher used to dispatch the CreateDrawnAnnotationEvent event.
+     */
     private BaseEventDispatcher createDrawnAnnotationEventDispatcher;
 
+    /**
+     * Initialize the SlideViewerComponentMouseAdapter class. 
+     * @param annotationModeIsEnabled The initial annotation mode.
+     * @param updateDrawnAnnotationEventDispatcher The dispatcher used to dispatch the UpdateDrawnAnnotationEvent event.
+     * @param createDrawnAnnotationEventDispatcher The dispatcher used to dispatch the CreateDrawnAnnotationEvent event.
+     */
     public SlideViewerComponentMouseAdapter(boolean annotationModeIsEnabled, BaseEventDispatcher updateDrawnAnnotationEventDispatcher, BaseEventDispatcher createDrawnAnnotationEventDispatcher) {
         this.annotationModeIsEnabled = annotationModeIsEnabled;
         this.updateDrawnAnnotationEventDispatcher = updateDrawnAnnotationEventDispatcher;
@@ -59,16 +74,26 @@ public class SlideViewerComponentMouseAdapter extends MouseAdapter implements Mo
         }
     }
     
+    /**
+     * Initialize a new list to store the annotation points.
+     */
     private void resetAnnotationPoints() {
         this.annotationPoints = new ArrayList();
     }
     
+    /**
+     * Add a new annotation point.
+     * @param point The new annotation point.
+     */
     private void addAnnotationPoint(Point point) {
         this.annotationPoints.add(point);
         // Send the new point to be drawn on the SlideViewerComponent.
         this.updateDrawnAnnotationEventDispatcher.fire(new UpdateDrawnAnnotationEvent(this, this.annotationPoints));
     }
     
+    /**
+     * Create the annotation.
+     */
     private void createAnnotation() {
         this.createDrawnAnnotationEventDispatcher.fire(new CreateDrawnAnnotationEvent(this, this.annotationPoints));
         this.resetAnnotationPoints();
@@ -76,6 +101,7 @@ public class SlideViewerComponentMouseAdapter extends MouseAdapter implements Mo
 
     @Override
     public void eventFired(UpdateAnnotationModeEvent event) {
+        // Change the annotation mode
         this.annotationModeIsEnabled = !this.annotationModeIsEnabled;
     }
 }

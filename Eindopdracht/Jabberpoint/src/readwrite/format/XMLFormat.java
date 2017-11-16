@@ -10,9 +10,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
-import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -35,26 +32,70 @@ import readwrite.builder.PresentationBuilder;
 public class XMLFormat extends Format {
 
     /** namen van xml tags of attributen */
+    /**
+     * The presentation title XML tag.
+     */
     private static final String PRESENTATION_TITLE = "showtitle";
+    
+    /**
+     * The slide title XML tag.
+     */
     private static final String SLIDE_TITLE = "title";
+    
+    /**
+     * The slide XML tag.
+     */
     private static final String SLIDE = "slide";
+    
+    /**
+     * The item XML tag.
+     */
     private static final String ITEM = "item";
+    
+    /**
+     * The nesting level XML tag.
+     */
     private static final String LEVEL = "level";
+    
+    /**
+     * The kind XML tag.
+     */
     private static final String KIND = "kind";
+    
+    /**
+     * The text XML tag that indicates the TextItem object.
+     */
     private static final String TEXT = "text";
+    
+    /**
+     * The image XML tag that indicates the ImageItem object.
+     */
     private static final String IMAGE = "image";
     
     /** tekst van messages */
     private static final String UNKNOWNTYPE = "Unknown Element type";
     
     // is reading?
+    /**
+     * Determines if the file is being read.
+     */
     private boolean read;
     
     // reader objects
+    /**
+     * The object used to parse the XML file.
+     */
     private Document document;
+    
+    /**
+     * The cursor that determines which XML element is being read.
+     */
     private Element currentElement;
     
     // writer objects
+    /**
+     * The object used to write the XML file.
+     */
     private PrintWriter out;
     
     public XMLFormat(PresentationBuilder builder) {

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller.menulisteners;
 
 import events.dispatchers.BaseEventDispatcher;
@@ -11,13 +6,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- *
+ * This class contains the operations that need to be executed to close the presentation.
  * @author Tim
  */
 public class ClosePresentationActionListener implements ActionListener {
     
+    /**
+     * The dispatcher used to dispatch the ClosePresentationEvent event.
+     */
     private BaseEventDispatcher closePresentationEventDispatcher;
 
+    /**
+     * Initialize the ClosePresentationActionListener class.
+     * @param closePresentationEventDispatcher The dispatcher used to dispatch the ClosePresentationEvent event.
+     */
     public ClosePresentationActionListener(BaseEventDispatcher closePresentationEventDispatcher) {
         this.closePresentationEventDispatcher = closePresentationEventDispatcher;
     }

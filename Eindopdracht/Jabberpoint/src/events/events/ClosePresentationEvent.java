@@ -1,18 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package events.events;
 
 import java.util.EventObject;
 
 /**
- *
+ * This class contains the information of the ClosePresentationEvent event.
  * @author Tim
  */
 public class ClosePresentationEvent extends EventObject {
     
+    /**
+     * Initialize the ClosePresentationEvent class.
+     * @param source The source object where the event initially occurred on.
+     */
     public ClosePresentationEvent(Object source) {
         super(source);
     }

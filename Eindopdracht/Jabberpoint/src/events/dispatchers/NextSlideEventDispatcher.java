@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package events.dispatchers;
 
 import events.events.NextSlideEvent;
@@ -11,7 +6,7 @@ import java.util.EventListener;
 import java.util.EventObject;
 
 /**
- *
+ * This class manages all the NextSlideEventListener objects and fires NextSlideEvent events.
  * @author Tim
  */
 public class NextSlideEventDispatcher extends BaseEventDispatcher {

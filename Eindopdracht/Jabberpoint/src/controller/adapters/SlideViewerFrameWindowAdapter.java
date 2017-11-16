@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller.adapters;
 
 import events.dispatchers.BaseEventDispatcher;
@@ -11,13 +6,20 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 /**
- *
+ * This class handles the window events that are triggered on the SlideViewerFrame.
  * @author Tim
  */
 public class SlideViewerFrameWindowAdapter extends WindowAdapter {
     
+    /**
+     * The dispatcher used to dispatch the ClosePresentationEvent event.
+     */
     private BaseEventDispatcher closePresentationEventDispatcher;
 
+    /**
+     * Initialize the SlideViewerFrameWindowAdapter class.
+     * @param closePresentationEventDispatcher The dispatcher used to dispatch the ClosePresentationEvent event.
+     */
     public SlideViewerFrameWindowAdapter(BaseEventDispatcher closePresentationEventDispatcher) {
         this.closePresentationEventDispatcher = closePresentationEventDispatcher;
     }

@@ -1,28 +1,36 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package readwrite;
 
 import model.Presentation;
 import readwrite.format.Format;
 
 /**
- *
+ * The Reader object contains the operations to read a presentation from a specific storage format.
  * @author Tim
  */
 public class Reader {
     
+    /**
+     * The storage format.
+     */
     private Format format;
 
+    /**
+     * Initialize the Reader object.
+     * @param format The storage format to read the presentation from.
+     */
     public Reader(Format format) {
         this.format = format;
     }
     
+    /**
+     * Read the presentation from a specific storage format.
+     * @param path The location of the presentation file.
+     * @return The read presentation.
+     */
     public Presentation read(String path) {
         boolean fileOpened = this.format.open(path, true);
         
+        // Only read the file if it was succesfully opened.
         if(fileOpened) {
             this.format.readBegin();
             this.format.readPresentationTitle();

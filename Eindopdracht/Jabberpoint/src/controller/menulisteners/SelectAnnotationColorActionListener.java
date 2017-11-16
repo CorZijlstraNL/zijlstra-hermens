@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller.menulisteners;
 
 import events.dispatchers.BaseEventDispatcher;
@@ -13,22 +8,27 @@ import java.awt.event.ActionListener;
 import javax.swing.JColorChooser;
 
 /**
- *
+ * This class contains the operations that need to be executed to update the annotation color.
  * @author Tim
  */
 public class SelectAnnotationColorActionListener implements ActionListener {
     
-    private static final String TITLE = "Color chooser";
-    
+    /**
+     * The dispatcher used to dispatch the UpdateAnnotationColorEvent event.
+     */
     private BaseEventDispatcher updateAnnotationColorEventDispatcher;
 
+    /**
+     * Initialize the SelectAnnotationColorActionListener event.
+     * @param updateAnnotationColorEventDispatcher The dispatcher used to dispatch the UpdateAnnotationColorEvent event.
+     */
     public SelectAnnotationColorActionListener(BaseEventDispatcher updateAnnotationColorEventDispatcher) {
         this.updateAnnotationColorEventDispatcher = updateAnnotationColorEventDispatcher;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Color annotationColor = JColorChooser.showDialog(null, TITLE, Color.BLACK);
+        Color annotationColor = JColorChooser.showDialog(null, "Color chooser", Color.BLACK);
         if(annotationColor != null) {
             this.updateAnnotationColorEventDispatcher.fire(new UpdateAnnotationColorEvent(this, annotationColor));
         }

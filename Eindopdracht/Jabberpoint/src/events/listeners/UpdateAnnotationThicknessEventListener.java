@@ -1,17 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package events.listeners;
 
 import events.events.UpdateAnnotationThicknessEvent;
 import java.util.EventListener;
 
 /**
- *
+ * This listener interface listens to fired UpdateAnnotationThicknessEvent events.
  * @author Tim
  */
 public interface UpdateAnnotationThicknessEventListener extends EventListener {
+    /**
+     * Execute operations based on the received UpdateAnnotationThicknessEvent event.
+     * @param event The received UpdateAnnotationThicknessEvent event.
+     */
     public void eventFired(UpdateAnnotationThicknessEvent event);
 }

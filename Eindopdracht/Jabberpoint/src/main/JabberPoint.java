@@ -18,15 +18,19 @@ import factories.MVCFactory;
  */
 public class JabberPoint {
     
+    private static String DEMO_PRESENTATION = "demo.xml";
+    
     /** Het Main Programma */
     public static void main(String argv[]) {
+        // Create the MainController object.
         MVCFactory factory = MVCFactory.getDefaultFactory();
         MainController controller = (MainController) factory.createController(factory);
         
-        // If there are no arguments, load the demo presentation
+        // If there are no arguments, load the demo presentation.
         if(argv.length == 0) {
-            controller.loadPresentation(null);
+            controller.loadPresentation(DEMO_PRESENTATION);
         }
+        // Otherwise load the presentation provided in the first argument.
         else {
             controller.loadPresentation(argv[0]);
         }

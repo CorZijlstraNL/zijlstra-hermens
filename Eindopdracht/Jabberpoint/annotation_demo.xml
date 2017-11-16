@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE presentation SYSTEM "jabberpoint.dtd">
+<presentation>
+	<showtitle>Annotatie demo</showtitle>
+	<slide>
+		<title>Nieuwe functionaliteit: annotaties</title>
+		<item kind="text"  level="1">Annotaties kunnen op slides worden getekend</item>
+		<item kind="text"  level="2">Activeer de annotatiemodus in het annotatiemenu om te kunnen tekenen</item>
+		<item kind="text"  level="2">Annotaties worden standaard in het zwart en 3 pixels breed getekend</item>
+		<item kind="text"  level="1">Annotatiestijl instellen</item>
+		<item kind="text"  level="2">U kunt via het annotatiemenu ook de kleur en grootte van de pen instellen</item>
+		<item kind="text"  level="1">Teken nu wat annotaties in verschillende stijlen en navigeer naar de volgende slide</item>
+	</slide>
+	<slide>
+		<title>Nieuwe functionaliteit: annotaties</title>
+		<item kind="text"  level="1">Annotaties worden bewaard</item>
+		<item kind="text"  level="2">Alle getekende annotaties worden op de slide bewaard</item>
+		<item kind="text"  level="2">Annotaties worden bij het opslaan van de presentatie niet bewaard</item>
+		<item kind="text"  level="2">Navigeer naar de vorige slide waar u uw eerder getekende annotaties terug zal vinden</item>
+	</slide>
+</presentation>

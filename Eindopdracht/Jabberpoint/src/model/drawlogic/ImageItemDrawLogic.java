@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.drawlogic;
 
 import java.awt.Graphics;
@@ -13,23 +8,30 @@ import model.ImageItem;
 import model.SlideStyle;
 
 /**
- *
+ * The ImageItemDrawLogic object contains the draw logic to be able to draw the ImageItem objects.
  * @author Tim
  */
 public class ImageItemDrawLogic implements SlideItemDrawLogic {
 
+    /**
+     * The ImageItem object to draw.
+     */
     private ImageItem imageItem;
     
+    /**
+     * Initialize the ImageItemDrawLogic object.
+     * @param imageItem The ImageItem object to draw.
+     */
     public ImageItemDrawLogic(ImageItem imageItem) {
         this.imageItem = imageItem;
     }
 
     @Override
     public void draw(int slideWidth, Graphics graphics, int posX, int posY, float scale, ImageObserver observer, SlideStyle slideStyle) {
-        int width = posX + (int) (slideStyle.getIndent() * scale);
-        int height = posY + (int) (slideStyle.getLeading() * scale);
+        int x = posX + (int) (slideStyle.getIndent() * scale);
+        int y = posY + (int) (slideStyle.getLeading() * scale);
         BufferedImage image = this.imageItem.getImage();
-        graphics.drawImage(image, width, height, (int)(image.getWidth(observer)*scale),
+        graphics.drawImage(image, x, y, (int)(image.getWidth(observer)*scale),
                 (int)(image.getHeight(observer)*scale), observer);
     }
 

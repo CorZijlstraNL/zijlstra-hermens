@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.drawlogic;
 
 import java.awt.Graphics;
@@ -23,13 +18,20 @@ import model.SlideStyle;
 import model.TextItem;
 
 /**
- *
+ * The TextItemDrawLogic object contains the draw logic to be able to draw the TextItem objects.
  * @author Tim
  */
 public class TextItemDrawLogic implements SlideItemDrawLogic {
 
+    /**
+     * The TextItem object to draw.
+     */
     private TextItem textItem;
     
+    /**
+     * Initialize the TextItemDrawLogic object.
+     * @param textItem The TextItem object to draw.
+     */
     public TextItemDrawLogic(TextItem textItem) {
         this.textItem = textItem;
     }
@@ -71,12 +73,28 @@ public class TextItemDrawLogic implements SlideItemDrawLogic {
         return new Rectangle((int) (slideStyle.getIndent() * scale), 0, width, height);
     }
     
+    /**
+     * Determine the AttributedString for the text of the TextItem object.
+     * @param slideStyle The style of the TextItem object.
+     * @param scale The scale to use to resize the TextItem object.
+     * @param text The text of the TextItem object.
+     * @return The AttributedString.
+     */
     private AttributedString getAttributedString(SlideStyle slideStyle, float scale, String text) {
         AttributedString attributedString = new AttributedString(text);
         attributedString.addAttribute(TextAttribute.FONT, slideStyle.getFont(scale), 0, text.length());
         return attributedString;
     }
     
+    /**
+     * Determine the graphical representations of the styled text data of the TextItem object.
+     * @param graphics The graphics object of the component to draw the TextItem object on.
+     * @param slideStyle The style of the TextItem object.
+     * @param scale The scale to use to resize the TextItem object.
+     * @param slideWidth The width of the slide.
+     * @param text The text of the TextItem object.
+     * @return The graphical representations of the styled text data of the TextItem object.
+     */
     private Iterator<TextLayout> getLayouts(Graphics graphics, SlideStyle slideStyle, float scale, int slideWidth, String text) {
         List<TextLayout> layouts = new ArrayList();
         AttributedString attributedString = this.getAttributedString(slideStyle, scale, text);
